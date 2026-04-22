@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Maroon Brew Cafe menusu, rezervasyon sistemi ve hizli iletisim kanallariyla modern bir kafe deneyimi sunar."
+    />
+    <title>Maroon Brew Cafe | Ozel Kahve ve Rezerve Masa</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <header class="hero" id="anasayfa">
+      <div class="hero-overlay"></div>
+      <nav class="nav container" id="siteNav">
+        <a href="#anasayfa" class="brand">Maroon Brew Cafe</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu ac">Menu</button>
+        <div class="nav-links" id="navLinks">
+          <a href="#menu">Menu</a>
+          <a href="#galeri">Galeri</a>
+          <a href="#rezervasyon">Rezervasyon</a>
+          <a href="#iletisim">Iletisim</a>
+        </div>
+        <button class="cart-badge" id="cartBadge" aria-label="Siparis listesi">Siparis 0</button>
+      </nav>
+
+      <section class="hero-content container reveal">
+        <p class="hero-brand">Maroon Brew Cafe</p>
+        <h1>Sehrin ritminde artisanal kahve, sakin bir atmosfer ve kusursuz servis.</h1>
+        <p>
+          Ozel kavrum cekirdekler, chef dokunuslu tabaklar ve aninda masa rezervasyonu ile deneyimi tek adimda yonetin.
+        </p>
+        <div class="hero-actions">
+          <a href="#menu" class="btn btn-primary">Menuyu Kesfet</a>
+          <a href="#rezervasyon" class="btn btn-secondary">Masa Ayirt</a>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section id="menu" class="container section reveal">
+        <h2>Canli Menu</h2>
+        <p class="section-copy">Arama ve kategori filtreleri ile menuyu aninda guncelleyin.</p>
+
+        <div class="filters" aria-label="Menu filtreleri">
+          <input id="searchInput" type="text" placeholder="Urun veya icerik ara" />
+          <select id="categorySelect">
+            <option value="Tum Kategoriler">Tum Kategoriler</option>
+            <option value="Espresso Bazli">Espresso Bazli</option>
+            <option value="Filtre Kahve">Filtre Kahve</option>
+            <option value="Tatli">Tatli</option>
+            <option value="Kahvalti">Kahvalti</option>
+            <option value="Soguk Icecek">Soguk Icecek</option>
+          </select>
+          <label class="range-wrap">
+            <span id="maxPriceText">Maksimum fiyat: 260 TL</span>
+            <input id="priceRange" type="range" min="60" max="260" step="5" value="260" />
+          </label>
+          <div class="result-box">
+            <strong id="resultCount">0</strong>
+            <span>urun gosteriliyor</span>
+          </div>
+        </div>
+
+        <div id="menuGrid" class="menu-grid"></div>
+      </section>
+
+      <section id="galeri" class="section gallery-section reveal">
+        <div class="container gallery-layout">
+          <div>
+            <h2>Mekandan Kareler</h2>
+            <p class="section-copy">Galeri akisi her 5 saniyede bir yenilenir. Istediginiz kareyi secerek one cikarabilirsiniz.</p>
+            <div class="gallery-controls">
+              <button class="btn btn-ghost" id="prevSlide">Onceki</button>
+              <button class="btn btn-ghost" id="nextSlide">Sonraki</button>
+            </div>
+          </div>
+          <figure class="gallery-stage">
+            <img id="galleryImage" src="" alt="Kafe galeri gorseli" />
+            <figcaption id="galleryCaption"></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="rezervasyon" class="container section reveal">
+        <h2>Hizli Rezervasyon</h2>
+        <p class="section-copy">Tarih, saat ve kisi sayisini secin. Uygunluk aninda kontrol edilir.</p>
+
+        <div class="reservation-layout">
+          <form id="reservationForm" class="reservation-form">
+            <label>
+              Ad Soyad
+              <input type="text" name="fullName" required />
+            </label>
+            <label>
+              Telefon
+              <input type="tel" name="phone" required />
+            </label>
+            <label>
+              Tarih
+              <input type="date" name="date" id="reservationDate" required />
+            </label>
+            <label>
+              Saat
+              <select name="time" id="reservationTime" required></select>
+            </label>
+            <label>
+              Kisi sayisi
+              <input type="number" name="people" min="1" max="10" value="2" required />
+            </label>
+            <button type="submit" class="btn btn-primary">Rezervasyonu Onayla</button>
+          </form>
+          <aside class="reservation-panel">
+            <h3>Bugunun Durumu</h3>
+            <p id="slotInfo">Slot bilgisi yukleniyor...</p>
+            <p id="reservationMessage" class="status-message" aria-live="polite"></p>
+          </aside>
+        </div>
+      </section>
+
+      <section id="iletisim" class="section contact-section reveal">
+        <div class="container contact-layout">
+          <div>
+            <h2>Tek Tikla Iletisim</h2>
+            <p class="section-copy">WhatsApp, telefon ve e-posta kanallarindan ekibimize dogrudan ulasin.</p>
+            <div class="contact-links">
+              <a href="tel:+902122220000">+90 212 222 00 00</a>
+              <a href="mailto:merhaba@maroonbrew.com">merhaba@maroonbrew.com</a>
+              <a href="https://wa.me/902122220000" target="_blank" rel="noreferrer">WhatsApp Hatti</a>
+            </div>
+          </div>
+          <form id="contactForm" class="contact-form">
+            <input type="text" name="name" placeholder="Ad Soyad" required />
+            <input type="email" name="email" placeholder="E-posta" required />
+            <textarea name="message" rows="4" placeholder="Mesajinizi yazin" required></textarea>
+            <button type="submit" class="btn btn-primary">Mesaj Gonder</button>
+            <p id="contactMessage" class="status-message" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <div id="detailModal" class="modal" aria-hidden="true">
+      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button id="modalClose" class="modal-close" aria-label="Kapat">X</button>
+        <img id="modalImage" src="" alt="Menu urun gorseli" />
+        <h3 id="modalTitle"></h3>
+        <p id="modalMeta"></p>
+        <p id="modalPrice"></p>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container footer-content">
+        <strong>Maroon Brew Cafe</strong>
+        <span>Ozel cekirdek, sakin mekan, hizli servis.</span>
+        <span id="copyrightYear"></span>
+      </div>
+    </footer>
+
+    <script type="module" src="./assets/js/app.js"></script>
+  </body>
+</html>
